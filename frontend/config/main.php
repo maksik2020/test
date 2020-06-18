@@ -10,7 +10,12 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'homeUrl' => '/',
-    'bootstrap' => ['log'],
+    'bootstrap' => ['gii'],
+    'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module',
+        ],
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
