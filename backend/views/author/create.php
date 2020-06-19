@@ -11,7 +11,8 @@ use \yii\jui\DatePicker;
 
 $form = ActiveForm::begin(
 	[
-		'enableClientValidation' => false,
+	//	'enableClientValidation' => false,
+		
 	]
 ); 
 
@@ -21,7 +22,9 @@ echo $form->field($author, 'NAME');
 echo $form->field($author, 'DATE_CREATE')->widget(DatePicker::classname(), [
 	'language' => 'ru',
 	'dateFormat' => 'yyyy-MM-dd',
+	
 ]);
+
 
 echo HTML::submitButton('Сохранить', ['class' => 'btn btn-primary',]);
 ActiveForm::end(); 
