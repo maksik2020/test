@@ -36,7 +36,7 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Главная', 'url' => ['/site/index']],
+       
         ['label' => 'Авторы', 'url' => ['/author/index'],'items'=> [
             ['label' => 'Создать', 'url' => ['/author/create']],
             ['label' => 'Показать', 'url' => ['/author/index']],
@@ -46,18 +46,7 @@ AppAsset::register($this);
             ['label' => 'Показать', 'url' => ['/book/index']],
         ]],
     ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/Выйти'], 'post')
-            . Html::submitButton(
-                'Выйти (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
+    
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,

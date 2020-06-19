@@ -27,7 +27,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
+<?php
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
@@ -36,25 +36,10 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Главная', 'url' => ['/site/index']],
-        ['label' => 'Авторы', 'url' => ['/author/index']],
-        ['label' => 'Книги', 'url' => ['/book/index']],
-        ['label' => 'О сайте', 'url' => ['/site/about']],
-        ['label' => 'Контакты', 'url' => ['/site/contact']],
+       
+       
     ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Выйти (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
+    
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,

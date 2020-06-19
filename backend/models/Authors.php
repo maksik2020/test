@@ -18,8 +18,8 @@ public static function tableName()
 public function rules()
 {
 	return [
-		[['NAME', 'DATE_CREATE'], 'required'],
-		[['DATE_CREATE','BooksCount'], 'integer'],
+		[['NAME'], 'required'],
+		[['BooksCount'], 'integer'],
 		
    
 	];
@@ -28,9 +28,10 @@ public function rules()
 public function beforeValidate()
 {
 
-	if (!empty($this->DATE_CREATE)) {
-	$this->DATE_CREATE = \DateTime::createFromFormat('Y-m-d', $this->DATE_CREATE)->format('U');
-	}
+/*if (!empty($this->DATE_CREATE)) {
+	$d = \DateTime::createFromFormat('Y-m-d', $this->DATE_CREATE); 
+	$this->DATE_CREATE =  $d->getTimestamp(); 
+	}*/
 	return parent::beforeValidate();
 }
 

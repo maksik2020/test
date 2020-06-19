@@ -12,6 +12,7 @@ return [
     'homeUrl' => '/admin', 
     'controllerNamespace' => 'backend\controllers',
     'name'=>'Книги и авторы',
+    'defaultRoute' => 'author/index',
     'bootstrap' => ['gii'],
     'modules' => [
         'gii' => [
@@ -50,14 +51,14 @@ return [
             'thousandSeparator' => ' ',
             'currencyCode' => 'EUR',
        ],
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];

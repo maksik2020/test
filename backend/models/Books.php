@@ -21,7 +21,7 @@ public function rules()
 {
 	return [
 		[['NAME', 'DATE_CREATE','IDAUTHOR'], 'required'],
-		[['DATE_CREATE','IDAUTHOR'], 'integer']
+	//	[['DATE_CREATE','IDAUTHOR'], 'integer']
 	];
 }
 
@@ -30,6 +30,7 @@ public function beforeValidate()
 
 	if (!empty($this->DATE_CREATE)) {
 	$this->DATE_CREATE = \DateTime::createFromFormat('Y-m-d', $this->DATE_CREATE)->format('U');
+	
 	}
 	return parent::beforeValidate();
 }

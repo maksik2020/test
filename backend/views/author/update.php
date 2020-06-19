@@ -1,3 +1,4 @@
+<h1>Редактирование Автора</h1>
 <?php
 
 use yii\helpers\Html;

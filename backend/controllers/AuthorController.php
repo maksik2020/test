@@ -3,13 +3,13 @@ namespace backend\controllers;
 use Yii;
 use yii\web\Controller;
 use backend\models\Authors;
-use yii\data\ActiveDataProvider;
+
 
 Class AuthorController extends Controller
 {
 	public function actionIndex()
 	{
-		$authors = Authors::find()->orderBy('NAME','DATE_CREATE')->all();
+		$authors = Authors::find()->orderBy('NAME',['BooksCount' => SORT_DESC],'DATE_CREATE')->all();
 		foreach ($authors as $author):
 			  if (!$author == null)
 			  {
@@ -23,7 +23,7 @@ Class AuthorController extends Controller
 						$author->BooksCount =  $author->getBooksCount();
 							$author->save();	
 					}
-				//$author->getBooksCount();
+				
 				
 			  }
 			 
@@ -62,8 +62,12 @@ Class AuthorController extends Controller
 		}
 		return $this->render('update',['author' => $author]);
 	}
-	public function actionDelete()
+	public function actionDelete($ID)
 	{
-		return $this->render('delete');
+		$author = Authors::findOne($ID);
+		$author->delete();
+		Yii::$app->session->SetFlash('success','Автор '.$author->NAME." удален!" );
+					
+		return $this->redirect(['author/index']);
 	}
 }

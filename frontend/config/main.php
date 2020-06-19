@@ -10,6 +10,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'homeUrl' => '/',
+    'name'=>'Книги и авторы',
     'bootstrap' => ['gii'],
     'modules' => [
         'gii' => [
@@ -43,14 +44,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+       
     ],
     'params' => $params,
 ];
