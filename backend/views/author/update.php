@@ -6,13 +6,17 @@ use yii\widgets\ActiveForm;
 use yii\jui\Widget; 
 use \yii\jui\DatePicker;
 
+
+
+
+
 $form = ActiveForm::begin(
 	[
 		'enableClientValidation' => false,
 	]
 ); 
 
-echo $form->field($author, 'NAME');
+echo $form->field($author, 'name');
 
 
 echo $form->field($author, 'DATE_CREATE')->widget(DatePicker::classname(), [

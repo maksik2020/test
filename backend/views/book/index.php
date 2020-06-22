@@ -20,11 +20,11 @@ $this->title = 'Книги';
   <?php $date_cr = Yii::$app->formatter->asDate($book->DATE_CREATE); ?>
  <?php  $author = $book->getAuthor(); ?>
   <tr>
-  <td>  <?php    echo $book->NAME ?></td> 
+  <td>  <?php    echo $book->name ?></td> 
   <td>  <?php echo $date_cr ?></td>
- <td> <?php     echo $author->NAME ?> </td>
- <td> <a href ="<?php echo Url::to(['book/update', 'ID' => $book->ID]) ?>"> Edit </a></td>
- <td> <a href ="<?php echo Url::to(['book/delete', 'ID' => $book->ID]) ?>"> Delete </a></td>
+ <td> <?php     echo $author->name ?> </td>
+ <td> <a href ="<?php echo Url::to(['book/update', 'id' => $book->id]) ?>"> Edit </a></td>
+ <td> <a href ="<?php echo Url::to(['book/delete', 'id' => $book->id]) ?>"> Delete </a></td>
 </tr>
  
 <?php endforeach; ?>

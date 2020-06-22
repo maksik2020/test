@@ -20,7 +20,7 @@ public static function tableName()
 public function rules()
 {
 	return [
-		[['NAME', 'DATE_CREATE','IDAUTHOR'], 'required'],
+		[['name', 'DATE_CREATE','IDAUTHOR'], 'required'],
 	//	[['DATE_CREATE','IDAUTHOR'], 'integer']
 	];
 }
@@ -55,7 +55,7 @@ public function behaviors()
 }
 public function getAuthor()
 {
-	return $this->hasOne(Authors::className(),['ID' => 'IDAUTHOR'])->one();
+	return $this->hasOne(Authors::className(),['id' => 'IDAUTHOR'])->one();
 }
 }
 

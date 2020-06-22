@@ -7,6 +7,8 @@ use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
 
+
+
 class Authors extends ActiveRecord  
 {
 
@@ -17,7 +19,7 @@ public static function tableName()
 
 public function getBooks()
 {
-	return $this->hasMany(Books::className(),['IDAUTHOR' => 'ID']);
+	return $this->hasMany(Books::className(),['IDAUTHOR' => 'id']);
 }
 public function getBooksCount()
 {

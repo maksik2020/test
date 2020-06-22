@@ -16,7 +16,7 @@ $form = ActiveForm::begin(
 	]
 ); 
 
-echo $form->field($author, 'NAME');
+echo $form->field($author, 'name');
 
 
 echo $form->field($author, 'DATE_CREATE')->widget(DatePicker::classname(), [

@@ -19,8 +19,8 @@ public static function tableName()
 public function rules()
 {
 	return [
-		[['NAME'], 'required'],
-		[['BooksCount'], 'integer'],
+		[['name'], 'required'],
+		[['booksCount'], 'integer'],
 		[['DATE_CREATE', 'DATE_EDIT'], 'safe'],
 	
 
@@ -30,11 +30,11 @@ public function rules()
 public function attributeLabels()
     {
         return [
-            'ID' => 'ID',
-            'NAME' => 'Наименование',
+            'id' => 'ID',
+            'name' => 'Автор',
             'DATE_CREATE' => 'Дата создания',
             'DATE_EDIT' => 'Дата редактирования',
-				'BooksCount' => 'Количество книг',
+				'booksCount' => 'Количество книг',
 				
         ];
 	 }
@@ -42,10 +42,10 @@ public function attributeLabels()
 public function beforeValidate()
 {
 
-if (!is_numeric($this->DATE_CREATE)) {
+/*if (!is_numeric($this->DATE_CREATE)) {
 	$this->DATE_CREATE = (\DateTime::createFromFormat('Y-m-d', $this->DATE_CREATE)->format('U'));
 	
-	}
+	}*/
 	return   parent::beforeValidate();
 }
 
@@ -74,7 +74,7 @@ public static function find()
     }
 public function getBooks()
 {
-	return $this->hasMany(Books::className(),['IDAUTHOR' => 'ID']);
+	return $this->hasMany(Books::className(),['IDAUTHOR' => 'id']);
 }
 public function getBooksCount()
 {

@@ -10,7 +10,7 @@ Class BookController extends Controller
 {
 	public function actionIndex()
 	{
-		$books = Books::find()->orderBy('NAME',['BooksCount' => SORT_DESC],'DATE_CREATE')->all();
+		$books = Books::find()->orderBy('name',['booksCount' => SORT_DESC],'DATE_CREATE')->all();
 	
 	
 		return $this->render('index',['books' => $books]);
@@ -25,7 +25,7 @@ Class BookController extends Controller
 
 			if ($book->save())
 				{
-					Yii::$app->session->SetFlash('success','Сохранено!'." Книга - ".$book->NAME." <br> Дата создания - ".$book->DATE_CREATE );
+					Yii::$app->session->SetFlash('success','Сохранено!'." Книга - ".$book->name." <br> Дата создания - ".$book->DATE_CREATE );
 					
 				}
 		}
@@ -40,7 +40,7 @@ Class BookController extends Controller
 		{
 			if ($book->save())
 				{
-		   		Yii::$app->session->SetFlash('success','Изменения сохранены!'." Автор - ".$book->NAME." <br> Дата создания - ".$book->DATE_CREATE );
+		   		Yii::$app->session->SetFlash('success','Изменения сохранены!'." Автор - ".$book->name." <br> Дата создания - ".$book->DATE_CREATE );
 					
 				}
 		}
@@ -50,7 +50,7 @@ Class BookController extends Controller
 	{
 		$book = Books::findOne($ID);
 		$book->delete();
-		Yii::$app->session->SetFlash('success','Книга '.$book->NAME." удалена!" );
+		Yii::$app->session->SetFlash('success','Книга '.$book->name." удалена!" );
 					
 		return $this->redirect(['book/index']);
 	}

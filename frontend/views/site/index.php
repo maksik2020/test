@@ -17,8 +17,8 @@ $this->title = 'Книги';
  
  <?php  $author = $book->getAuthor(); ?>
   <tr>
-  <td> <?php     echo $author->NAME ?> </td>
-  <td>  <?php    echo $book->NAME ?></td> 
+  <td> <?php     echo $author->name ?> </td>
+  <td>  <?php    echo $book->name ?></td> 
   
  
  

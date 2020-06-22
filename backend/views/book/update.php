@@ -12,7 +12,7 @@ $form = ActiveForm::begin(
 	]
 ); 
 
-echo $form->field($book, 'NAME');
+echo $form->field($book, 'name');
 
 
 echo $form->field($book, 'DATE_CREATE')->widget(DatePicker::classname(), [

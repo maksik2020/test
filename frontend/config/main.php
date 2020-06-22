@@ -21,7 +21,10 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            'baseUrl' => ''
+            'baseUrl' => '',
+            'parsers'=>[
+                'application/json'=>'yii\web\JsonParser'
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -44,15 +47,19 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        
         'urlManager' => [
+           
             'enablePrettyUrl' => true,
+           //'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                
-            ],
+                [
+                'class' => 'yii\rest\UrlRule',
+                'controller' => 'books',
+                'pluralize' => false
+                ],
+         ],
+        ]
         ],
-       
-    ],
     'params' => $params,
 ];

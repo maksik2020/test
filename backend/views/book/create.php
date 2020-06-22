@@ -15,13 +15,13 @@ $form = ActiveForm::begin(
 	]
 ); 
 
-echo $form->field($book, 'NAME');
+echo $form->field($book, 'name');
 //echo $form->field($book, 'IDAUTHOR');
 
-$cats = ArrayHelper::map($cats, 'ID', 'NAME');
+$cats = ArrayHelper::map($cats, 'id', 'name');
 echo $form->field($book, 'IDAUTHOR')->dropDownList($cats,  [
 	'prompt' => 'Укажите автора',
-	'ID' => 'test',
+	'id' => 'test',
 	'options' => [
 		 '7' => ['Selected' => true]
 	]
